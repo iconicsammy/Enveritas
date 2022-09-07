@@ -1,0 +1,204 @@
+{
+  "users": [
+    {
+      "email": "kmsium@gmail.com",
+      "password": "$2a$10$9V7aUuy3elUm626.uq.oJOvD/9EZacSKB4m74MY3yqysefsBqyj.q",
+      "id": 1
+    }
+  ],
+  "surveys": [
+    {
+      "title": "Farmers Plantation Seed Choice for 2023",
+      "description": "Find out which seed farmers would love to plant for the 2023?",
+      "targetNumberOfParticipants": 100,
+      "isCurrentlyOpen": true,
+      "id": 1,
+      "category": "Farmers Choice"
+    },
+    {
+      "title": "Farmers Plantation Seed Choice for 2021",
+      "description": "Find out which seed farmers would love to plant for the 2023?",
+      "targetNumberOfParticipants": 90,
+      "isCurrentlyOpen": false,
+      "id": 4,
+      "category": "Farmers Choice"
+    },
+    {
+      "title": "Operations Usage of Devices",
+      "description": "Find out device operations use to access survey app",
+      "targetNumberOfParticipants": 120,
+      "isCurrentlyOpen": true,
+      "id": 2,
+      "category": "Family Size"
+    },
+    {
+      "title": "Satisifaction Survey for Harvest Season 2021",
+      "description": "How did our farmers feel about 2021 harvest?",
+      "targetNumberOfParticipants": 250,
+      "isCurrentlyOpen": true,
+      "id": 3,
+      "category": "Reaction"
+    },
+    {
+      "id": 30,
+      "title": "berhe",
+      "description": "gila",
+      "isCurrentlyOpen": false,
+      "isDraft": true,
+      "targetNumberOfParticipants": 34,
+      "category": "Tech",
+      "questions": [
+        {
+          "questionType": "text",
+          "questionIdentifier": "a1fbab1c-a2df-4452-9ecc-bed6ecaefc39",
+          "label": "helen",
+          "validations": {
+            "minLength": 6
+          },
+          "choices": []
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "isCurrentlyOpen": false,
+      "isDraft": true,
+      "questions": [
+        {
+          "questionType": "text",
+          "questionIdentifier": "82065504-2c1c-49b4-a68e-2ead790b3b9c",
+          "label": "your name please",
+          "validations": {
+            "minLength": 4,
+            "maxLength": 6
+          },
+          "choices": []
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "title": "Badiah Is Badiah",
+      "description": "ye",
+      "isCurrentlyOpen": false,
+      "isDraft": true,
+      "targetNumberOfParticipants": 100,
+      "category": "Tech",
+      "questions": [
+        {
+          "questionType": "text",
+          "questionIdentifier": "82065504-2c1c-49b4-a68e-2ead790b3b9c",
+          "label": "your name please",
+          "validations": {
+            "minLength": 4,
+            "maxLength": 6
+          },
+          "choices": []
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "title": "Badiah Is Nuts",
+      "description": "ye",
+      "isCurrentlyOpen": false,
+      "isDraft": true,
+      "targetNumberOfParticipants": 100,
+      "category": "Tech",
+      "questions": [
+        {
+          "questionType": "text",
+          "questionIdentifier": "82065504-2c1c-49b4-a68e-2ead790b3b9c",
+          "label": "your name please",
+          "validations": {
+            "minLength": 4,
+            "maxLength": 6
+          },
+          "choices": []
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "title": "",
+      "description": "",
+      "isCurrentlyOpen": false,
+      "isDraft": true,
+      "targetNumberOfParticipants": 10,
+      "category": "Tech",
+      "questions": [
+        {
+          "questionType": "text",
+          "questionIdentifier": "82065504-2c1c-49b4-a68e-2ead790b3b9c",
+          "label": "your name please",
+          "validations": {
+            "minLength": 4,
+            "maxLength": 6
+          },
+          "choices": []
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "title": "",
+      "description": "",
+      "isCurrentlyOpen": false,
+      "isDraft": true,
+      "targetNumberOfParticipants": 10,
+      "category": "Tech",
+      "questions": [
+        {
+          "questionType": "text",
+          "questionIdentifier": "82065504-2c1c-49b4-a68e-2ead790b3b9c",
+          "label": "your name please",
+          "validations": {
+            "minLength": 4,
+            "maxLength": 6
+          },
+          "choices": []
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "title": "GOOD MORNING",
+      "description": "",
+      "isCurrentlyOpen": false,
+      "isDraft": true,
+      "targetNumberOfParticipants": 23,
+      "category": "Tech",
+      "questions": [
+        {
+          "questionType": "text",
+          "questionIdentifier": "d35a6e8e-ef15-452c-ad20-763f622c7639",
+          "label": "23",
+          "validations": {
+            "isRequired": true
+          },
+          "choices": []
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "title": "test",
+      "description": "",
+      "isCurrentlyOpen": false,
+      "isDraft": true,
+      "targetNumberOfParticipants": "23",
+      "category": "Tech",
+      "questions": [
+        {
+          "questionType": "text",
+          "questionIdentifier": "9ea6c44b-6660-4b53-b218-45f66186b25d",
+          "label": "Your City",
+          "validations": {
+            "minLength": 5
+          },
+          "choices": []
+        }
+      ]
+    }
+  ]
+}
