@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+import { SurveyProvider } from "store/contexts/SurveyContext/SurveyContext";
+import ThemeContext, { ThemeProvider } from "store/contexts/SurveyContext/ThemeContext";
+import AppRoutes from "views/NavigationRoutes/AppRoutes";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <SurveyProvider>
+    <div>
+      <AppRoutes/>
+      <ToastContainer />
     </div>
+    </SurveyProvider>
   );
 }
+
 
 export default App;

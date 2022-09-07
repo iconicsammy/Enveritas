@@ -1,46 +1,100 @@
-# Getting Started with Create React App
+# Survey Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Setting up
 
-## Available Scripts
+    run 
+    
+    ```
+    npm install 
+    ```
 
-In the project directory, you can run:
+    to have network experience, stimulate a server instance:
 
-### `npm start`
+    ```
+    npm run start-auth
+    ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    Then run the application:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    ```
+    npm start
+    ```
 
-### `npm test`
+    build it with:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    ```
+    npm run build
+    ```
 
-### `npm run build`
+    There are default user names combination to login with:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+        username:kmsium@gmail.com
+        password: 123456
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    You can use postman to create the users as well by sending username and password to the post endpoint:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+        ```
+        http://localhost:3004/register
+        ```
 
-### `npm run eject`
+## Main Goal
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    The main goal of the application is to let admin create survey forms that can be accessed by any user.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    For more flexiblity, each survey is saved as a JSON file as shown below, which you can map with models and dto's of the application.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    ```
+    {
+      "id": 37,
+      "title": "test",
+      "description": "",
+      "isCurrentlyOpen": false,
+      "isDraft": true,
+      "targetNumberOfParticipants": "23",
+      "category": "Tech",
+      "questions": [
+        {
+          "questionType": "text",
+          "questionIdentifier": "9ea6c44b-6660-4b53-b218-45f66186b25d",
+          "label": "Your City",
+          "validations": {
+            "minLength": 5
+          },
+          "choices": []
+        }
+      ]
+    }
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    ```
 
-## Learn More
+    That way, we can create survey's with our editors and pass them along to common JSON form builders we can extend or implement.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Admin and End-User Component
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    The majority of the application deals with the admin user for creating a form. But once a survey is saved/created, we can use JSONFormBuilder component to easily construct back the form for the user to fill.
+
+    In real life, we would use the component with any other reactjs application along with the validator functions in utils/validators.ts file.
+
+## Archicture
+
+    The application is divided into application, store and views:
+
+    Application: the heart of the application containing the business logic of the application. Components are to talk to the middleware("services") which decide if an operation needs to talk to an endpoint or not.
+
+    Store: our centralized state management
+
+    views: the UI parts that are grouped by user (logged in user), guest and shared.
+
+## Data Handling
+
+    Application is offline ready using indexdb database but priority is given to online. That is when creating a survey, it will first try to create it online. If it fails, it will create it in local database.
+
+    The same goes for retrieving data. Components are not aware of where data is going or coming from thanks to the middleware layer of the application.
+
+# Known Issues
+
+    As a one day work, I am sure you will find issues but here are known issues:
+
+        1. Reordering does reorder the questions in the state and data but text input value don't change.
+        2. Survey is not grouped. So if a user wants to create 100 questions, it might not be friendly to list them all but rather have them grouped and enable multi-screens per survey.
+        3. Common questions are not implemented such as location question ("Locate Me") or "rating" but they are relatively easy to hook into the app.

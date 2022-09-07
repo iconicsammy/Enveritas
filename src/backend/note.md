@@ -1,0 +1,1 @@
+Contains our server data with json-server library to stimulate network experience
