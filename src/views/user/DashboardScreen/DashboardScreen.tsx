@@ -53,7 +53,7 @@ function DashboardScreen() {
                     <NumberCard value={21} decimalPoints={0} titleKey="closedSurveys" btnCaptionKey="viewList" btnClickHandler={statButtonsClickHandler} />
                 </div>
 
-                <div className="columns-2">
+                <div className="grid grid-cols-2">
                     <div className="overflow-x-auto">
                         <SurveyTable data={openSurveys} tableTitleTranslationKey="openSurveys" />
                     </div>
@@ -63,6 +63,8 @@ function DashboardScreen() {
                         <PieChart data={pieChartData} />
                     </div>
                 </div>
+
+
             </RootScreen>
 
         </>
