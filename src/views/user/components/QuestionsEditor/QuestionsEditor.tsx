@@ -91,7 +91,7 @@ function QuestionsEditor() {
 
   return (<>
     {questions.map((question, index) => {
-      return (<QuestionCard handleChoiceQuestions={handleChoiceQuestions} index={index} handleQuestionValidation={handleQuestionValidation} handleQuestionTitle={handleQuestionTitle} defaultValue={question.label} handleReOrderingQuestion={handleReOrderingQuestion} questionType={question.questionType} questionIdentifier={question.questionIdentifier} handleDeleteQuestion={handleDeleteQuestion} />)
+      return (<QuestionCard key={question.questionIdentifier} handleChoiceQuestions={handleChoiceQuestions} index={index} handleQuestionValidation={handleQuestionValidation} handleQuestionTitle={handleQuestionTitle} defaultValue={question.label} handleReOrderingQuestion={handleReOrderingQuestion} questionType={question.questionType} questionIdentifier={question.questionIdentifier} handleDeleteQuestion={handleDeleteQuestion} />)
     })}
     <div className="flex flex-row justify-center">
     <div className="form-control">

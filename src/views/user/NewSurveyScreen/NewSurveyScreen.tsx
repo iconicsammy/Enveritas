@@ -12,6 +12,44 @@ import Toaster from "utils/Toaster"
 import { LocalizationContext } from 'store/contexts/LocalizationContext/LocalizationContext';
 import { useNavigate } from "react-router-dom"
 import SectionTitle from "views/shared/components/SectionTitle/SectionTitle"
+import JSONFormBuilder from "views/shared/components/JSONFormBuilder/JSONFormBuilder"
+
+const d= {
+    "id": 38,
+    "title": "Farmers Season 2023 Expectations",
+    "description": "",
+    "isCurrentlyOpen": false,
+    "isDraft": true,
+    "targetNumberOfParticipants": "100",
+    "category": "Tech",
+    "questions": [
+      {
+        "questionType": "text",
+        "questionIdentifier": "ec450ddf-690a-4366-a7f3-e79ef7a48340",
+        "label": "Whats your name?",
+        "validations": {
+          "isRequired": true,
+          "minLength": 6
+        },
+        "choices": []
+      },
+      {
+        "questionType": "singleChoice",
+        "questionIdentifier": "7824d605-9b08-4948-b06c-742de5b6b3e3",
+        "label": "Gender",
+        "validations": {
+          "isRequired": true,
+          "minLength": 10
+        },
+        "choices": [
+          "Male",
+          "Female"
+        ]
+      }
+    ]
+  }
+
+  
 
 
 function NewSurveyScreen() {
@@ -54,13 +92,14 @@ function NewSurveyScreen() {
     return (
         <>
             <RootScreen>
+            <JSONFormBuilder id={d.id} title={d.title} description={d.description} questions={d.questions} />
+            
                 <div className="flex justify-center">
                     <div className="bg-red-200 w-1/2 rounded overflow-hidden shadow-xl p-5">
 
                         <form className="space-y-4" action="#" method="POST">
 
                         <SectionTitle titleTranslatedKey="newSurvey" />
-
 
                             <div className="rounded-md shadow-sm -space-y-px">
                                 <div className="grid gap-6">
@@ -79,8 +118,6 @@ function NewSurveyScreen() {
                                     </div>
 
                                     <div className="col-span-12">
-
-
 
                                         <label htmlFor="targetNumberOfParticipants" className="block text-sm font-medium text-gray-700"><Translated translatationKey="targetParticipants" /></label>
                                         <input

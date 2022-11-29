@@ -10,7 +10,9 @@ import SelectSingleCheck from 'views/user/components/FormElements/SelectSingleCh
 /*
     Given a json data, build the form
 */
-interface Values {
+
+
+interface FormFieldDetails {
     elementName: string,
     value: string | number | boolean
 }
@@ -19,13 +21,30 @@ interface Values {
 
 function JSONFormBuilder({ id, title, description, questions }: Partial<SurveyDTO>) {
     const [answers, setAnswers] = useState({})
+    const [formFieldsStatus, setFormFieldsStatus ] = useState<string[]>([]); //the status of the form fields.
 
-
-    const onChangeHandler = (value: Values) => {
+    const onChangeHandler = (value: FormFieldDetails) => {
 
         const newAnswer = { [value.elementName]: value.value }
         const updateAnswer = { ...answers, ...newAnswer }
         setAnswers(updateAnswer);
+    }
+
+    const handleFieldErrorStatus = (fieldName: string, fieldHasNoError: boolean) => {
+
+        const existinFieldStatus = [...formFieldsStatus]
+        const fieldIndex = existinFieldStatus.indexOf(fieldName)
+        //if false, it means it is dirty.
+        if (!fieldHasNoError){
+         if (fieldIndex === -1){
+           existinFieldStatus.push(fieldName)
+         }
+          
+        } else{
+            //remove it
+            existinFieldStatus.splice(fieldIndex, 1)
+        }
+        setFormFieldsStatus(existinFieldStatus);
     }
 
     const buildUI = (questions: QuestionDTO[]) => {
@@ -38,7 +57,10 @@ function JSONFormBuilder({ id, title, description, questions }: Partial<SurveyDT
                     defaultValue=''
                     validations={question.validations}
                     label={question.label}
-                    onChangeHandler={onChangeHandler} />)
+                    onChangeHandler={onChangeHandler} 
+                    handleFieldErrorStatus={handleFieldErrorStatus}
+                    />
+                    )
             } else if (question.questionType === 'singleChoice' && question.choices) {
                 elements.push(<SelectSingleCheck defaultSelectedValue="" validations={question.validations}
                     label={question.label}
@@ -55,9 +77,13 @@ function JSONFormBuilder({ id, title, description, questions }: Partial<SurveyDT
     }
 
     const handleSubmitButton = async () => {
-        console.log(answers)
-        alert("See answers in logs....you are done!")
-
+        console.log(formFieldsStatus);
+        if (formFieldsStatus.length > 0){
+            alert("error")
+        }else{
+            console.log(answers)
+            alert("See answers in logs....you are done!")
+        }
     }
 
     return (

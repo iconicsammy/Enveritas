@@ -16,7 +16,6 @@ interface IThemeContext {
     const [dark, setDark] = useState(defaultState.dark);
   
     const toggleDark = () => {
-        console.log(19)
       setDark(!dark);
     };
   

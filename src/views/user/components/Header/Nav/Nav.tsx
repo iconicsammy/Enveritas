@@ -15,7 +15,7 @@ const menus: Menu[] = [
     },
     {
         labelTranslationKey: 'surveys',
-        navigateTo: '/survey',
+        navigateTo: '/list',
         showInMobile: true
     }
 ]

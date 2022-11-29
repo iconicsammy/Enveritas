@@ -21,7 +21,9 @@ interface QuestionCardProps extends QuestionProps {
 
 
 function QuestionCard({ questionType, handleQuestionValidation, handleChoiceQuestions, handleDeleteQuestion, index, handleQuestionTitle, questionIdentifier, handleReOrderingQuestion, defaultValue }: QuestionCardProps) {
-
+    
+    console.log(defaultValue);
+    
     const [questionLabel, setQuestionLabel] = useState(defaultValue);
     const [collapse, setCollapse] = useState(false);
 

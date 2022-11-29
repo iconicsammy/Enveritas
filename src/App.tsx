@@ -4,6 +4,7 @@ import ThemeContext, { ThemeProvider } from "store/contexts/SurveyContext/ThemeC
 import AppRoutes from "views/NavigationRoutes/AppRoutes";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import JSONFormBuilder from "views/shared/components/JSONFormBuilder/JSONFormBuilder";
 
 
 function App() {
